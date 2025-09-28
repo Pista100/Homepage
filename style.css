@@ -397,10 +397,9 @@ main {
   .close-menu {
     display: block;
     position: absolute;
-    top: 1rem;
+    top: 2rem;
     right: 2rem;
   }
-
   .close-menu svg {
     fill: white;
   }
