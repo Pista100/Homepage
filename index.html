@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>森麟Profolio</title>
+    <title>我是森麟</title>
     <link rel="stylesheet" href="style.css">
     <!-- Google Fonts for cute styles -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,10 +14,17 @@
 
     <!-- Navbar -->
     <nav class="navbar">
-        <a href="#hero" class="nav-logo">森麟Profolio</a>
+        <a href="#hero" class="nav-logo">
+            <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28"
+                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+        </a>
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
             <li><a href="#portfolio">Works</a></li>
+            <li><a href="#pricing">價目表</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -82,16 +89,18 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="contact-section">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
-                <p>I'm always open to new opportunities and collaborations.</p>
-                <p>Feel free to reach out to me at:</p>
-                <a href="mailto:hello@example.com" class="email-link">hello@example.com</a>
+        <!-- Pricing Section -->
+        <section id="pricing" class="about-section">
+            <div class="about-content">
+                <h2 class="section-title">價目表</h2>
+                <p>
+                    這裡是文字委託的價目表。
+                </p>
             </div>
         </section>
-    </main>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
 
     <!-- Video Player Modal -->
     <div id="video-player-modal" class="video-player-overlay" style="display: none;">

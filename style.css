@@ -47,11 +47,18 @@ main {
 }
 
 .nav-logo {
-  font-family: 'Pacifico', cursive;
-  font-size: 1.5rem;
-  font-weight: bold;
+    display: flex;
+    align-items: center;
   text-decoration: none;
+}
+
+.nav-icon {
   color: #333;
+    transition: color 0.3s ease;
+}
+
+.nav-logo:hover .nav-icon {
+    color: #ff6b6b;
 }
 
 .nav-links {
