@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>森麟Profolio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for cute styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#hero" class="nav-logo">森麟Profolio</a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#portfolio">Works</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Hello, I'm 森麟</h1>
+                <p class="hero-subtitle">A creative soul who loves to draw and code.</p>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="about-content">
+                <h2 class="section-title">About Me</h2>
+                <p>
+                    Welcome to my little corner of the internet! I'm a passionate artist and developer who finds joy in creating beautiful things, whether it's with a brush or with code.
+                </p>
+                <p>
+                    This space is a collection of my favorite projects, a journey through colors, shapes, and stories. I believe that every piece of art holds a small piece of the creator's heart. 
+                </p>
+                <p>
+                    I hope you enjoy your stay and find something that makes you smile. 
+                </p>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="portfolio-section">
+            <h2 class="section-title">My Works</h2>
+            <div class="portfolio-container">
+                <div class="portfolio-scroll-area">
+                    <!-- Item 1 (Image) -->
+                    <div class="portfolio-item">
+                        <img src="https://picsum.photos/seed/project1/800/600" alt="Portfolio piece" class="portfolio-image">
+                    </div>
+                    <!-- Item 2 (Image) -->
+                    <div class="portfolio-item">
+                        <img src="https://picsum.photos/seed/project2/800/600" alt="Portfolio piece" class="portfolio-image">
+                    </div>
+                    <!-- Item 3 (Video) -->
+                    <div class="portfolio-item video-item" data-video-id="dQw4w9WgXcQ">
+                        <img src="https://picsum.photos/seed/project3/800/600" alt="Video Thumbnail" class="portfolio-image">
+                        <div class="play-button-overlay">
+                            <svg class="play-icon" viewBox="0 0 200 200">
+                                <circle cx="100" cy="100" r="90" fill="rgba(255, 255, 255, 0.8)"></circle>
+                                <polygon points="85,70 135,100 85,130" fill="#333"></polygon>
+                            </svg>
+                        </div>
+                    </div>
+                    <!-- Item 4 (Image) -->
+                    <div class="portfolio-item">
+                        <img src="https://picsum.photos/seed/project4/800/600" alt="Portfolio piece" class="portfolio-image">
+                    </div>
+                    <!-- Item 5 (Image) -->
+                    <div class="portfolio-item">
+                        <img src="https://picsum.photos/seed/project5/800/600" alt="Portfolio piece" class="portfolio-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <p>I'm always open to new opportunities and collaborations.</p>
+                <p>Feel free to reach out to me at:</p>
+                <a href="mailto:hello@example.com" class="email-link">hello@example.com</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Video Player Modal -->
+    <div id="video-player-modal" class="video-player-overlay" style="display: none;">
+        <div class="video-player-content">
+            <iframe id="youtube-player" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <button id="close-video-btn" class="close-video-btn">Close</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
