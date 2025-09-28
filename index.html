@@ -22,10 +22,18 @@
             </svg>
         </a>
         <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#portfolio">Works</a></li>
+            <li><a href="#about">關於我</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">作品</a>
+                <div class="dropdown-content">
+                    <a href="#portfolio">插畫作品</a>
+                    <a href="#text-works">文字作品</a>
+                    <a href="#video-works">影音作品</a>
+                    <a href="#handmade-works">手作作品</a>
+                </div>
+            </li>
             <li><a href="#pricing">價目表</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#contact">聯絡我</a></li>
         </ul>
     </nav>
 
@@ -41,7 +49,7 @@
         <!-- About Section -->
         <section id="about" class="about-section">
             <div class="about-content">
-                <h2 class="section-title">About Me</h2>
+                <h2 class="section-title">關於我</h2>
                 <p>
                     Welcome to my little corner of the internet! I'm a passionate artist and developer who finds joy in creating beautiful things, whether it's with a brush or with code.
                 </p>
@@ -56,7 +64,7 @@
 
         <!-- Portfolio Section -->
         <section id="portfolio" class="portfolio-section">
-            <h2 class="section-title">My Works</h2>
+            <h2 class="section-title">插畫作品</h2>
             <div class="portfolio-container">
                 <div class="portfolio-scroll-area">
                     <!-- Item 1 (Image) -->
@@ -89,6 +97,36 @@
             </div>
         </section>
 
+        <!-- Text Works Section -->
+        <section id="text-works" class="about-section">
+            <div class="about-content">
+                <h2 class="section-title">文字作品</h2>
+                <p>
+                    這裡是文字作品的展示區塊。
+                </p>
+            </div>
+        </section>
+
+        <!-- Video Works Section -->
+        <section id="video-works" class="about-section">
+            <div class="about-content">
+                <h2 class="section-title">影音作品</h2>
+                <p>
+                    這裡是影音作品的展示區塊。
+                </p>
+            </div>
+        </section>
+
+        <!-- Handmade Works Section -->
+        <section id="handmade-works" class="about-section">
+            <div class="about-content">
+                <h2 class="section-title">手作作品</h2>
+                <p>
+                    這裡是手作作品的展示區塊。
+                </p>
+            </div>
+        </section>
+
         <!-- Pricing Section -->
         <section id="pricing" class="about-section">
             <div class="about-content">
@@ -101,6 +139,7 @@
 
         <!-- Contact Section -->
         <section id="contact" class="contact-section">
+            <h2 class="section-title">聯絡我</h2>
 
     <!-- Video Player Modal -->
     <div id="video-player-modal" class="video-player-overlay" style="display: none;">
