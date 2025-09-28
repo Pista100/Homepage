@@ -38,4 +38,27 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    const hamburgerBtn = document.querySelector('.hamburger-menu');
+    const closeMenuBtn = document.querySelector('.close-menu');
+    const navContainer = document.querySelector('.nav-container');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const navbar = document.querySelector('.navbar'); // Get the navbar to add/remove class
+
+    hamburgerBtn.addEventListener('click', () => {
+        navContainer.classList.add('active');
+        navbar.classList.add('menu-open'); // Add class to navbar to show/hide buttons
+    });
+
+    closeMenuBtn.addEventListener('click', () => {
+        navContainer.classList.remove('active');
+        navbar.classList.remove('menu-open'); // Remove class from navbar
+    });
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navContainer.classList.remove('active');
+            navbar.classList.remove('menu-open'); // Remove class from navbar
+        });
+    });
+
 });
