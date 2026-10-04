@@ -120,7 +120,7 @@ function renderProjects() {
           ${project.coverTag}
         </span>
         <div class="text-center">
-          <div class="text-4xl mb-1 group-hover:scale-125 transition-transform duration-300">🎀</div>
+          <div class="text-4xl mb-1 group-hover:scale-125 transition-transform duration-300">${project.icon || '🎀'}</div>
           <span class="text-xs font-bold text-purple-900/70">${project.category}</span>
         </div>
       </div>
@@ -231,13 +231,29 @@ function bindGlobalEvents() {
     });
   }
 
+  // 手機版選單切換
+  const mobileMenuBtn = document.getElementById('btn-mobile-menu');
+  const mobileDrawer = document.getElementById('mobile-menu-drawer');
+  if (mobileMenuBtn && mobileDrawer) {
+    mobileMenuBtn.addEventListener('click', () => {
+      soundFx.playPop();
+      mobileDrawer.classList.toggle('hidden');
+    });
+
+    mobileDrawer.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileDrawer.classList.add('hidden');
+      });
+    });
+  }
+
   // 聯絡表單發送
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
       soundFx.playCelebration();
-      alert('💌 草莓信件已寄出！草莓大魔王會儘快回覆你喔～ ✨');
+      alert('💌 信件已寄出！森麟會儘快回覆你喔～ ✨');
       contactForm.reset();
     });
   }

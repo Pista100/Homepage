@@ -95,8 +95,8 @@ export function initModals() {
               <button onclick="closeModal()" class="px-5 py-2 rounded-full border border-purple-200 text-purple-600 text-sm font-bold hover:bg-purple-50">
                 返回手帳
               </button>
-              <a href="${project.demoUrl}" class="btn-bouncy px-6 py-2 bg-gradient-to-r from-pink-400 to-purple-500 text-white text-sm font-bold rounded-full shadow-md flex items-center gap-1">
-                <span>🚀</span> 前往體驗
+              <a href="${project.demoUrl}" ${/^https?:\/\//.test(project.demoUrl) ? 'target="_blank" rel="noopener noreferrer"' : ''} class="btn-bouncy px-6 py-2 bg-gradient-to-r from-pink-400 to-purple-500 text-white text-sm font-bold rounded-full shadow-md flex items-center gap-1.5">
+                <span>${project.icon || '🚀'}</span> ${project.btnText || '前往體驗'}
               </a>
             </div>
           </div>
@@ -144,7 +144,7 @@ export function initModals() {
             </div>
 
             <div class="flex items-center justify-between pt-2 border-t border-purple-100">
-              <span class="text-xs text-gray-500">🍓 草莓大魔王的手帳隨筆</span>
+              <span class="text-xs text-gray-500">🍓 森麟的手帳隨筆</span>
               <button onclick="closeModal()" class="btn-bouncy px-5 py-2 bg-purple-400 text-white text-xs font-bold rounded-full shadow-sm">
                 讀完關閉 ✨
               </button>
