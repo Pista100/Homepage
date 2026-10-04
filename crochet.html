@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>編織日記 🧶 | #織蛛 • 森麟的手作毛線日記與影片照片</title>
+  <meta name="description" content="森麟（#織蛛）的編織手作手帳：精選手作毛線玩偶、編織縮時影片、暖心圍巾與成品寫真。" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧶</text></svg>" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body class="selection:bg-pink-200 selection:text-purple-900">
+
+  <!-- 頂部懸浮手帳導覽列 -->
+  <header class="fixed top-0 left-0 w-full z-40 glass-nav">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <a href="./index.html" class="btn-bouncy flex items-center gap-1.5 px-4 py-1.5 bg-white border border-purple-200 rounded-full text-xs sm:text-sm font-bold text-purple-700 shadow-sm hover:bg-purple-50">
+          ← 回到首頁
+        </a>
+        <div class="hidden sm:flex items-center gap-1">
+          <a href="./writings.html" class="px-3 py-1 text-xs font-bold text-[#8C7A78] hover:text-purple-700 hover:bg-purple-50 rounded-full transition-all">
+            📝 是文字啊
+          </a>
+          <a href="./gallery.html" class="px-3 py-1 text-xs font-bold text-[#8C7A78] hover:text-purple-700 hover:bg-purple-50 rounded-full transition-all">
+            🎨 圖像創作
+          </a>
+        </div>
+      </div>
+
+      <!-- 右側 Leighdom 品牌標記 -->
+      <a href="./index.html" class="flex items-center gap-2 group">
+        <span class="font-heading font-black text-lg text-[#4A3E3D] group-hover:text-purple-600 transition-colors">
+          🧶 Leighdom
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <!-- 主內容區域 -->
+  <main class="pt-28 pb-20 max-w-6xl mx-auto px-4 space-y-10">
+
+    <!-- 頁面標題與簡介 (Hero) -->
+    <section class="text-center space-y-3 relative">
+      <div class="absolute top-0 left-8 text-2xl animate-float opacity-70">🌸</div>
+      <div class="absolute top-4 right-10 text-xl animate-twinkle opacity-80">✨</div>
+      <div class="absolute -top-4 right-1/4 text-2xl animate-float-delayed opacity-60">🧶</div>
+
+      <span class="text-xs md:text-sm font-bold text-pink-500 tracking-wider uppercase">HANDMADE & CROCHET DIARY</span>
+      
+      <h1 class="text-4xl md:text-5xl font-black">
+        <span class="text-rainbow-gradient">#織蛛 • 編織日記</span>
+      </h1>
+      
+      <p class="text-base md:text-lg text-[#8C7A78] max-w-xl mx-auto leading-relaxed">
+        在毛線交織的規律裡，找到了最安靜的溫柔。<br class="hidden sm:inline" />
+        在這裡記錄毛線球的旅行、手作過程影片與成品寫真 🧶✨
+      </p>
+    </section>
+
+    <!-- 分類篩選按鈕列 -->
+    <div id="crochet-filter" class="flex flex-wrap items-center justify-center gap-2.5">
+      <!-- 由 JS 渲染 -->
+    </div>
+
+    <!-- 作品展示牆 (拍立得網格) -->
+    <section id="crochet-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 pt-4">
+      <!-- 由 JS 渲染 -->
+    </section>
+
+  </main>
+
+  <!-- 頁尾 -->
+  <footer class="border-t-2 border-dashed border-purple-200 py-8 text-center text-xs text-[#8C7A78]">
+    © 2026 森麟 Leigh. All Rights Reserved. • #織蛛 Crochet & Craft Diary
+  </footer>
+
+  <!-- 作品大圖與影片詳情彈窗容器 -->
+  <div id="crochet-modal" class="hidden"></div>
+
+  <!-- 主程式腳本 -->
+  <script type="module" src="./js/crochet.js"></script>
+</body>
+</html>

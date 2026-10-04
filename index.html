@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>草莓大魔王 🍓 | 薰衣草夢幻手帳空間</title>
+  <meta name="description" content="草莓大魔王的個人品牌、作品集與手記空間。粉紅草泥馬吉祥物、可拖曳手帳便條紙與溫馨互動！" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍓</text></svg>" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: '#FAF7F2',
+            lavender: {
+              50: '#FAF5FF',
+              100: '#F3E8FF',
+              200: '#E9D5FF',
+              300: '#D8B4FE',
+              400: '#C084FC',
+              500: '#A855F7',
+              600: '#9333EA',
+            },
+            strawberry: {
+              pink: '#FF8FA3',
+              dark: '#FF4D6D',
+              light: '#FFCCD5',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body class="selection:bg-pink-200 selection:text-purple-900">
+
+  <!-- ========================================================================
+       頂部懸浮手帳導覽列 (Floating Glassmorphism Navbar)
+       ======================================================================== -->
+  <header class="fixed top-0 left-0 w-full z-40 glass-nav transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      
+      <!-- 網站標誌 / 名字 (Leighdom 與像素星星圍繞) -->
+      <a href="#" class="relative flex items-center gap-2 group px-2 py-1 select-none">
+        <span class="text-2xl transform group-hover:rotate-12 transition-transform">🍓</span>
+        
+        <div class="relative inline-flex items-center">
+          <!-- 像素裝飾星星 (黃色與橘色，大小不一，圍繞在 Leighdom 邊緣) -->
+          <!-- 左上方微型黃星 -->
+          <svg class="absolute -top-2.5 -left-2.5 animate-twinkle pointer-events-none" width="10" height="10" viewBox="0 0 10 10" shape-rendering="crispEdges" style="animation-delay: 0.2s;">
+            <rect x="4" y="1" width="2" height="8" fill="#FBBF24"/>
+            <rect x="1" y="4" width="8" height="2" fill="#FBBF24"/>
+            <rect x="4" y="4" width="2" height="2" fill="#FFFFFF"/>
+          </svg>
+
+          <!-- 上方中間橘星 -->
+          <svg class="absolute -top-3 left-1/3 animate-twinkle pointer-events-none" width="8" height="8" viewBox="0 0 8 8" shape-rendering="crispEdges" style="animation-delay: 0.7s;">
+            <rect x="3" y="1" width="2" height="6" fill="#F97316"/>
+            <rect x="1" y="3" width="6" height="2" fill="#F97316"/>
+            <rect x="3" y="3" width="2" height="2" fill="#FFEDD5"/>
+          </svg>
+
+          <!-- 右上方大黃金星 -->
+          <svg class="absolute -top-3.5 -right-3.5 animate-twinkle pointer-events-none" width="14" height="14" viewBox="0 0 14 14" shape-rendering="crispEdges" style="animation-delay: 1.2s;">
+            <rect x="6" y="1" width="2" height="12" fill="#FBBF24"/>
+            <rect x="1" y="6" width="12" height="2" fill="#FBBF24"/>
+            <rect x="5" y="5" width="4" height="4" fill="#F59E0B"/>
+            <rect x="6" y="6" width="2" height="2" fill="#FFFFFF"/>
+          </svg>
+
+          <!-- 右側中偏下橘紅星 -->
+          <svg class="absolute top-1/2 -right-4 -translate-y-1/2 animate-twinkle pointer-events-none" width="9" height="9" viewBox="0 0 9 9" shape-rendering="crispEdges" style="animation-delay: 0.5s;">
+            <rect x="3" y="0" width="3" height="9" fill="#FB923C"/>
+            <rect x="0" y="3" width="9" height="3" fill="#FB923C"/>
+            <rect x="3" y="3" width="3" height="3" fill="#FFEDD5"/>
+          </svg>
+
+          <!-- 右下方小黃星 -->
+          <svg class="absolute -bottom-2.5 -right-2 animate-twinkle pointer-events-none" width="8" height="8" viewBox="0 0 8 8" shape-rendering="crispEdges" style="animation-delay: 1.5s;">
+            <rect x="3" y="1" width="2" height="6" fill="#FBBF24"/>
+            <rect x="1" y="3" width="6" height="2" fill="#FBBF24"/>
+            <rect x="3" y="3" width="2" height="2" fill="#FEF08A"/>
+          </svg>
+
+          <!-- 左下方小橘星 -->
+          <svg class="absolute -bottom-2 -left-2 animate-twinkle pointer-events-none" width="7" height="7" viewBox="0 0 7 7" shape-rendering="crispEdges" style="animation-delay: 0.9s;">
+            <rect x="2.5" y="0.5" width="2" height="6" fill="#EA580C"/>
+            <rect x="0.5" y="2.5" width="6" height="2" fill="#EA580C"/>
+            <rect x="2.5" y="2.5" width="2" height="2" fill="#FED7AA"/>
+          </svg>
+
+          <!-- Leighdom 文字 -->
+          <span class="font-heading font-black text-xl md:text-2xl text-[#4A3E3D] group-hover:text-purple-600 transition-colors tracking-wide px-1">
+            Leighdom
+          </span>
+        </div>
+      </a>
+
+      <!-- 導航連結 (桌機) -->
+      <nav class="hidden md:flex items-center gap-1 font-bold text-xs text-[#4A3E3D]">
+        <a href="#about" class="px-3 py-1.5 rounded-full hover:bg-purple-100 hover:text-purple-700 transition-all">📖 關於我</a>
+        <a href="#projects" class="px-3 py-1.5 rounded-full hover:bg-purple-100 hover:text-purple-700 transition-all">🖼️ 拍立得作品</a>
+        <a href="#blog" class="px-3 py-1.5 rounded-full hover:bg-purple-100 hover:text-purple-700 transition-all">📝 手記 Blog</a>
+        <a href="#guestbook" class="px-3 py-1.5 rounded-full hover:bg-purple-100 hover:text-purple-700 transition-all">📌 留言板</a>
+        <a href="#contact" class="px-3 py-1.5 rounded-full hover:bg-purple-100 hover:text-purple-700 transition-all">💌 聯絡我</a>
+      </nav>
+
+      <!-- 輔助控制組 (音效開關與音樂盒) -->
+      <div class="flex items-center gap-2">
+        <button id="btn-toggle-bgm" class="btn-bouncy px-3 py-1.5 bg-white border border-purple-200 rounded-full text-xs font-bold text-purple-700 shadow-sm flex items-center gap-1">
+          <span>🎶</span> <span class="hidden sm:inline">八音盒</span>
+        </button>
+        <button id="btn-toggle-sound" class="btn-bouncy px-3 py-1.5 bg-white border border-purple-200 rounded-full text-xs font-bold text-purple-700 shadow-sm flex items-center gap-1">
+          <span>🔊</span> <span class="hidden sm:inline">音效開</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       主內容區域 (Main Content)
+       ======================================================================== -->
+  <main class="pt-24 pb-20 max-w-6xl mx-auto px-4 space-y-24">
+
+    <!-- ----------------------------------------------------------------------
+         1. Hero 迎賓區 (Welcome Desk & Alpaca Mascot)
+         ---------------------------------------------------------------------- -->
+    <section class="min-h-[80vh] flex flex-col lg:flex-row items-center justify-center gap-10 pt-6 relative">
+      
+      <!-- 背景漂浮小裝飾 -->
+      <div class="absolute top-10 left-5 text-2xl animate-float opacity-70">🌸</div>
+      <div class="absolute bottom-10 right-10 text-2xl animate-float-delayed opacity-70">🎀</div>
+      <div class="absolute top-1/3 right-1/4 text-xl animate-twinkle opacity-80">✨</div>
+
+      <!-- 左側：迎賓文字與拍立得個人名片 -->
+      <div class="flex-1 space-y-6 text-center lg:text-left z-10">
+        <!-- 狀態徽章 -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-white/90 border border-purple-200 rounded-full shadow-sm">
+          <span class="w-2.5 h-2.5 bg-green-400 rounded-full animate-ping"></span>
+          <span id="profile-status-text" class="text-xs font-bold text-purple-700">✨ 正在享受草莓大福與寫代碼中...</span>
+        </div>
+
+        <!-- 主標題 -->
+        <div class="space-y-2">
+          <span class="text-sm font-bold text-pink-500 tracking-wide uppercase">Hello! I am Leigh.</span>
+          <h1 class="text-2xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black leading-tight whitespace-nowrap">
+            <span class="text-pink-purple">歡迎光臨！我是</span><span class="text-rainbow-gradient font-black">森麟</span><span class="text-pink-purple">！</span> 🍓
+          </h1>
+          <p id="hero-tagline" class="text-base sm:text-lg font-medium text-[#8C7A78] max-w-xl mx-auto lg:mx-0 leading-relaxed">
+            在閱讀、創作、編織的浩海中遨遊。
+          </p>
+        </div>
+
+        <!-- 快速行動按鈕 -->
+        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+          <a href="#projects" class="btn-bouncy px-7 py-3 bg-gradient-to-r from-pink-400 via-rose-400 to-purple-500 text-white font-bold rounded-full shadow-lg shadow-pink-200 flex items-center gap-2 text-sm">
+            <span>📖</span> 精選作品一覽
+          </a>
+          <a href="#guestbook" class="btn-bouncy px-6 py-3 bg-white border-2 border-purple-200 text-purple-700 font-bold rounded-full shadow-md hover:bg-purple-50 flex items-center gap-2 text-sm">
+            <span>📌</span> 貼張便條紙留言
+          </a>
+        </div>
+
+        <!-- 核心身份方塊 (#作家 #織蛛 #說書人 #圖像創作) -->
+        <div class="pt-2">
+          <div id="profile-stats" class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1">
+            <!-- 由 JS 渲染 -->
+          </div>
+        </div>
+      </div>
+
+      <!-- 右側：粉紅草泥馬互動吉祥物 -->
+      <div class="flex-1 flex justify-center items-center relative z-20">
+        <div id="alpaca-mascot-container">
+          <!-- 由 AlpacaMascot JS 渲染 -->
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ----------------------------------------------------------------------
+         2. About Me 手帳關於我 (Draggable Sticky Notes & Bento Desk)
+         ---------------------------------------------------------------------- -->
+    <section id="about" class="space-y-8 scroll-mt-24">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 border-b-2 border-dashed border-purple-200 pb-4">
+        <div>
+          <span class="text-xs font-bold text-pink-500 uppercase tracking-wider">Senlin Universe</span>
+          <h2 class="text-3xl font-black text-[#4A3E3D] flex items-center gap-2">
+            <span>🌸</span> 森麟宇宙
+          </h2>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-xs text-purple-500 font-bold bg-purple-50 px-3 py-1 rounded-full border border-purple-200 animate-pulse">
+            💡 桌面上的便條紙可以自由拖曳喔！
+          </span>
+          <button id="btn-reset-desk" class="btn-bouncy px-3 py-1 bg-white border border-gray-300 text-gray-600 rounded-full text-xs font-bold shadow-sm">
+            🔄 重置位置
+          </button>
+        </div>
+      </div>
+
+      <!-- 軟木塞拼貼畫布 (Corkboard Scrapbook Area) -->
+      <div class="corkboard-bg p-6 sm:p-8 rounded-3xl relative overflow-hidden min-h-[380px] shadow-lg flex flex-wrap items-start justify-center gap-6">
+        
+        <!-- 便條紙 1: 個人自我介紹 -->
+        <div class="sticky-note draggable-note bg-[#FFF9ED] p-6 rounded-2xl w-full sm:w-80 shadow-md cursor-grab active:cursor-grabbing border border-amber-100/80" style="transform: rotate(-1.5deg);">
+          <div class="washi-tape-yellow -top-3 left-1/2 -translate-x-1/2 w-32"></div>
+          <div class="space-y-2 mt-1">
+            <h3 class="text-base font-bold text-amber-900 flex items-center gap-1.5">
+              <span>🍓</span> 關於森麟
+            </h3>
+            <p id="about-bio-text" class="text-xs text-[#4A3E3D] leading-relaxed select-none">
+              載入中...
+            </p>
+            <div class="pt-2 flex items-center gap-1 text-[11px] font-bold text-amber-700">
+              <span>📍 棲息地：</span> <span id="profile-location">草莓星雲</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 便條紙 2: 個人特質與習慣 -->
+        <div class="sticky-note draggable-note bg-[#F3E8FF] p-6 rounded-2xl w-full sm:w-72 shadow-md cursor-grab active:cursor-grabbing border border-purple-200" style="transform: rotate(2deg);">
+          <div class="washi-tape-lavender -top-3 left-1/2 -translate-x-1/2 w-28"></div>
+          <div class="space-y-3 mt-1 select-none">
+            <h3 class="text-base font-bold text-purple-900 flex items-center gap-1.5">
+              <span>🎀</span> 大魔王の日常特質
+            </h3>
+            <ul class="text-xs text-[#4A3E3D] space-y-1.5">
+              <li class="flex items-center gap-1.5"><span>🍵</span> 每天必備一杯溫熱抹茶拿鐵</li>
+              <li class="flex items-center gap-1.5"><span>🎨</span> 收集了超過 100 捲手帳紙膠帶</li>
+              <li class="flex items-center gap-1.5"><span>✨</span> 喜歡寫能帶給人笑容的互動網頁</li>
+              <li class="flex items-center gap-1.5"><span>🦙</span> 夢想是擁有一座粉紅草泥馬牧場</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 便條紙 3: 隨身手帳格言 -->
+        <div class="sticky-note draggable-note bg-[#FFF0F3] p-5 rounded-2xl w-full sm:w-64 shadow-md cursor-grab active:cursor-grabbing border border-pink-200" style="transform: rotate(-2.5deg);">
+          <div class="washi-tape-pink -top-3 left-1/2 -translate-x-1/2 w-24"></div>
+          <div class="text-center space-y-2 mt-1 select-none">
+            <span class="text-3xl inline-block animate-bounce">🪄</span>
+            <h4 class="text-sm font-bold text-pink-700">今日魔法格言</h4>
+            <p class="text-xs italic text-[#4A3E3D] leading-relaxed">
+              「只要心中有草莓，<br/>連 Bug 也會變成甜點！」
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 技能魔法庫 -->
+      <div class="space-y-4 pt-4">
+        <h3 class="text-xl font-black text-[#4A3E3D] flex items-center gap-2">
+          <span>🪄</span> 掌握的技能與魔法庫
+        </h3>
+        <div id="skills-container" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- 由 JS 渲染 -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------
+         3. Portfolio 拍立得作品集 (Polaroid Showcase)
+         ---------------------------------------------------------------------- -->
+    <section id="projects" class="space-y-8 scroll-mt-24">
+      <div class="text-center space-y-2 border-b-2 border-dashed border-purple-200 pb-4">
+        <span class="text-xs font-bold text-pink-500 uppercase tracking-wider">Portfolio & Works</span>
+        <h2 class="text-3xl font-black text-[#4A3E3D] flex items-center justify-center gap-2">
+          <span>🖼️</span> 拍立得精選手帳作品集
+        </h2>
+        <p class="text-xs text-gray-500">點擊任意拍立得卡片，可展開查看專案詳細手記與展示 ✨</p>
+      </div>
+
+      <!-- 專案卡片網格 -->
+      <div id="projects-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-4">
+        <!-- 由 JS 渲染 -->
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------
+         4. Blog 文章手記簿 (Notebook Notes)
+         ---------------------------------------------------------------------- -->
+    <section id="blog" class="space-y-8 scroll-mt-24">
+      <div class="border-b-2 border-dashed border-purple-200 pb-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+        <div>
+          <span class="text-xs font-bold text-purple-600 uppercase tracking-wider">Blog & Notes</span>
+          <h2 class="text-3xl font-black text-[#4A3E3D] flex items-center gap-2">
+            <span>📝</span> 草莓手帳隨筆手記
+          </h2>
+        </div>
+        <span class="text-xs bg-pink-100 text-pink-600 font-bold px-3 py-1 rounded-full">
+          ✨ 記錄前端魔法與手繪生活
+        </span>
+      </div>
+
+      <!-- 文章清單 -->
+      <div id="blog-posts-container" class="space-y-4">
+        <!-- 由 JS 渲染 -->
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------
+         5. Guestbook 互動手帳留言板 (Scrapbook Corkboard)
+         ---------------------------------------------------------------------- -->
+    <section id="guestbook" class="space-y-8 scroll-mt-24">
+      <div class="text-center space-y-2 border-b-2 border-dashed border-purple-200 pb-4">
+        <span class="text-xs font-bold text-pink-500 uppercase tracking-wider">Interactive Guestbook</span>
+        <h2 class="text-3xl font-black text-[#4A3E3D] flex items-center justify-center gap-2">
+          <span>📌</span> 軟木塞手帳留言板
+        </h2>
+        <p class="text-xs text-gray-500">選一張你喜歡的彩色便條紙，留下想對草莓大魔王說的話吧！</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+        
+        <!-- 左側：發布留言表單 -->
+        <div class="bg-white/95 p-6 rounded-3xl border-2 border-purple-200 shadow-md space-y-4 relative">
+          <div class="washi-tape-pink -top-3 left-10 w-28"></div>
+          <h3 class="text-lg font-black text-[#4A3E3D] flex items-center gap-1.5">
+            <span>✏️</span> 寫一張新便條紙
+          </h3>
+
+          <form id="guestbook-form" class="space-y-3">
+            <div>
+              <label class="block text-xs font-bold text-[#4A3E3D] mb-1">你的暱稱 / 稱呼</label>
+              <input type="text" id="gb-name" required placeholder="例如：摘星小貓 🐱" 
+                     class="w-full px-3 py-2 text-xs rounded-xl border border-purple-200 focus:outline-none focus:ring-2 focus:ring-purple-400 bg-purple-50/40" />
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-[#4A3E3D] mb-1">留言內容</label>
+              <textarea id="gb-message" required rows="3" placeholder="寫下一句溫暖的話或拍拍草泥馬..." 
+                        class="w-full px-3 py-2 text-xs rounded-xl border border-purple-200 focus:outline-none focus:ring-2 focus:ring-purple-400 bg-purple-50/40 resize-none"></textarea>
+            </div>
+
+            <!-- 便條紙顏色選擇 -->
+            <div>
+              <label class="block text-xs font-bold text-[#4A3E3D] mb-1.5">挑選便條紙顏色</label>
+              <div class="flex items-center gap-3">
+                <label class="flex items-center gap-1 cursor-pointer text-xs">
+                  <input type="radio" name="gb-color" value="#FFF0F3" checked class="accent-pink-500" />
+                  <span class="w-4 h-4 rounded-full bg-[#FFF0F3] border border-pink-300 inline-block"></span> 粉紅
+                </label>
+                <label class="flex items-center gap-1 cursor-pointer text-xs">
+                  <input type="radio" name="gb-color" value="#F3E8FF" class="accent-purple-500" />
+                  <span class="w-4 h-4 rounded-full bg-[#F3E8FF] border border-purple-300 inline-block"></span> 薰衣草
+                </label>
+                <label class="flex items-center gap-1 cursor-pointer text-xs">
+                  <input type="radio" name="gb-color" value="#FEF9C3" class="accent-yellow-500" />
+                  <span class="w-4 h-4 rounded-full bg-[#FEF9C3] border border-yellow-300 inline-block"></span> 奶油黃
+                </label>
+                <label class="flex items-center gap-1 cursor-pointer text-xs">
+                  <input type="radio" name="gb-color" value="#DCFCE7" class="accent-emerald-500" />
+                  <span class="w-4 h-4 rounded-full bg-[#DCFCE7] border border-emerald-300 inline-block"></span> 薄荷綠
+                </label>
+              </div>
+            </div>
+
+            <!-- 紙膠帶選擇 -->
+            <div>
+              <label class="block text-xs font-bold text-[#4A3E3D] mb-1.5">固定紙膠帶</label>
+              <div class="flex items-center gap-3 text-xs">
+                <label class="flex items-center gap-1 cursor-pointer">
+                  <input type="radio" name="gb-tape" value="pink" checked class="accent-pink-500" /> 粉紅膠帶
+                </label>
+                <label class="flex items-center gap-1 cursor-pointer">
+                  <input type="radio" name="gb-tape" value="lavender" class="accent-purple-500" /> 紫色膠帶
+                </label>
+                <label class="flex items-center gap-1 cursor-pointer">
+                  <input type="radio" name="gb-tape" value="yellow" class="accent-yellow-500" /> 黃色膠帶
+                </label>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-bouncy w-full py-2.5 bg-gradient-to-r from-pink-400 to-purple-500 text-white font-bold rounded-xl text-xs shadow-md flex items-center justify-center gap-1.5 pt-2">
+              <span>📌</span> 貼上軟木塞板！
+            </button>
+          </form>
+        </div>
+
+        <!-- 右側：軟木塞留言展示區 -->
+        <div class="lg:col-span-2 corkboard-bg p-6 rounded-3xl min-h-[360px] shadow-inner">
+          <div id="guestbook-notes-container" class="flex flex-wrap items-center justify-center gap-4">
+            <!-- 由 JS 渲染與拖曳 -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------
+         6. Contact 手繪郵戳信封 (Postage Envelope Form)
+         ---------------------------------------------------------------------- -->
+    <section id="contact" class="space-y-8 scroll-mt-24">
+      <div class="text-center space-y-2 border-b-2 border-dashed border-purple-200 pb-4">
+        <span class="text-xs font-bold text-pink-500 uppercase tracking-wider">Get in Touch</span>
+        <h2 class="text-3xl font-black text-[#4A3E3D] flex items-center justify-center gap-2">
+          <span>💌</span> 寄一封草莓手繪信
+        </h2>
+        <p class="text-xs text-gray-500">有任何合作想法、前端交流或想認識草泥馬，都歡迎隨時寄信給我！</p>
+      </div>
+
+      <!-- 復古手繪信封外框 -->
+      <div class="max-w-2xl mx-auto bg-[#FFFDF9] p-8 rounded-3xl border-4 border-[#F3E8FF] shadow-xl relative overflow-hidden">
+        
+        <!-- 右上角草莓郵票與郵戳 -->
+        <div class="absolute top-6 right-6 flex items-center gap-2 pointer-events-none">
+          <div class="w-16 h-20 bg-pink-50 border-2 border-dashed border-pink-400 rounded-md flex flex-col items-center justify-center shadow-sm">
+            <span class="text-2xl">🍓</span>
+            <span class="text-[9px] font-bold text-pink-600 mt-1">POSTAGE</span>
+          </div>
+          <div class="w-12 h-12 rounded-full border-2 border-purple-300 flex items-center justify-center text-[8px] font-bold text-purple-400 rotate-12">
+            2026.09<br/>ALPACALAND
+          </div>
+        </div>
+
+        <form id="contact-form" class="space-y-4 pt-2">
+          <div>
+            <label class="block text-xs font-bold text-[#4A3E3D] mb-1">寄件人姓名 / 稱謂</label>
+            <input type="text" required placeholder="怎麼稱呼你呢？" 
+                   class="w-full sm:w-2/3 px-3 py-2 text-xs rounded-xl border border-purple-200 focus:outline-none focus:ring-2 focus:ring-purple-400 bg-purple-50/30" />
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-[#4A3E3D] mb-1">電子信箱 (Email)</label>
+            <input type="email" required placeholder="your.email@example.com" 
+                   class="w-full sm:w-2/3 px-3 py-2 text-xs rounded-xl border border-purple-200 focus:outline-none focus:ring-2 focus:ring-purple-400 bg-purple-50/30" />
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-[#4A3E3D] mb-1">信件內容</label>
+            <textarea required rows="4" placeholder="寫下你的合作邀約、提問或悄悄話..." 
+                      class="w-full px-3 py-2 text-xs rounded-xl border border-purple-200 focus:outline-none focus:ring-2 focus:ring-purple-400 bg-purple-50/30 resize-none"></textarea>
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+            <div id="social-links-container" class="flex flex-wrap items-center gap-2">
+              <!-- 由 JS 渲染社群按鈕 -->
+            </div>
+
+            <button type="submit" class="btn-bouncy px-8 py-3 bg-gradient-to-r from-pink-400 via-rose-400 to-purple-500 text-white text-xs font-bold rounded-full shadow-lg shadow-pink-200 flex items-center gap-2">
+              <span>💌</span> 蓋上郵戳寄出！
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       頁尾 (Footer)
+       ======================================================================== -->
+  <footer class="border-t-2 border-dashed border-purple-200 py-8 text-center text-xs text-[#8C7A78] space-y-2">
+    <div class="flex items-center justify-center gap-2 text-base">
+      <span>🍓</span>
+      <span>🦙</span>
+      <span>🌸</span>
+      <span>✨</span>
+    </div>
+    <p class="font-bold">
+      © 2026 草莓大魔王 (Strawberry Archfiend). All Rights Reserved.
+    </p>
+    <p class="text-[11px] text-purple-400">
+      Built with pure Kawaii magic • 100% Ready for GitHub Pages
+    </p>
+  </footer>
+
+  <!-- ========================================================================
+       全域彈窗容器 (Global Modal Container)
+       ======================================================================== -->
+  <div id="global-modal-container" class="hidden"></div>
+
+  <!-- 主程式腳本 (ES Module) -->
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>

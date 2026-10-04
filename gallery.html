@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>圖像創作 🎨 | 森麟的插畫與攝影作品手帳</title>
+  <meta name="description" content="森麟的視覺創作藝廊：精選插畫手繪、菲林底片攝影與生活日常手記。" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎨</text></svg>" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body class="selection:bg-pink-200 selection:text-purple-900">
+
+  <!-- 頂部懸浮手帳導覽列 -->
+  <header class="fixed top-0 left-0 w-full z-40 glass-nav">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <a href="./index.html" class="btn-bouncy flex items-center gap-1.5 px-4 py-1.5 bg-white border border-purple-200 rounded-full text-xs sm:text-sm font-bold text-purple-700 shadow-sm hover:bg-purple-50">
+          ← 回到首頁
+        </a>
+        <div class="hidden sm:flex items-center gap-1">
+          <a href="./writings.html" class="px-3 py-1 text-xs font-bold text-[#8C7A78] hover:text-purple-700 hover:bg-purple-50 rounded-full transition-all">
+            📝 是文字啊
+          </a>
+          <a href="./crochet.html" class="px-3 py-1 text-xs font-bold text-[#8C7A78] hover:text-purple-700 hover:bg-purple-50 rounded-full transition-all">
+            🧶 編織日記
+          </a>
+        </div>
+      </div>
+      <a href="./index.html" class="flex items-center gap-2 group">
+        <span class="font-heading font-black text-lg text-[#4A3E3D] group-hover:text-purple-600 transition-colors">
+          🎨 Leighdom
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <!-- 主內容區域 -->
+  <main class="pt-28 pb-20 max-w-6xl mx-auto px-4 space-y-10">
+
+    <!-- 頁面標題與簡介 -->
+    <section class="text-center space-y-3 relative">
+      <div class="absolute top-0 left-8 text-2xl animate-float opacity-70">🌸</div>
+      <div class="absolute top-4 right-10 text-xl animate-twinkle opacity-80">✨</div>
+      <span class="text-xs md:text-sm font-bold text-pink-500 tracking-wider uppercase">VISUAL ART & PHOTOGRAPHY</span>
+      
+      <h1 class="text-4xl md:text-5xl font-black">
+        <span class="text-rainbow-gradient">圖像創作</span>
+      </h1>
+      
+      <p class="text-base md:text-lg text-[#8C7A78] max-w-xl mx-auto leading-relaxed">
+        用畫筆勾勒溫暖想像，用鏡頭捕捉午後光影。<br class="hidden sm:inline" />每一張手帳拍立得，都是留住時間的小魔法 ✨
+      </p>
+    </section>
+
+    <!-- 分類篩選按鈕列 -->
+    <div id="gallery-filter" class="flex flex-wrap items-center justify-center gap-2.5">
+      <!-- 由 JS 渲染 -->
+    </div>
+
+    <!-- 作品展示牆 (拍立得網格) -->
+    <section id="gallery-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 pt-4">
+      <!-- 由 JS 渲染 -->
+    </section>
+
+  </main>
+
+  <!-- 頁尾 -->
+  <footer class="border-t-2 border-dashed border-purple-200 py-8 text-center text-xs text-[#8C7A78]">
+    © 2026 森麟 Leigh. All Rights Reserved. • Visual Arts Gallery
+  </footer>
+
+  <!-- 作品大圖彈窗容器 -->
+  <div id="image-modal" class="hidden"></div>
+
+  <!-- 主程式腳本 -->
+  <script type="module" src="./js/gallery.js"></script>
+</body>
+</html>
